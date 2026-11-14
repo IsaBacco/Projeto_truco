@@ -1,3 +1,44 @@
+/* CORES
+
+
+#1B1B1B fundo do placar
+#1E1E1E fundo 2
+RGB: (226, 179, 63) amarelo
+#bb2e2e vermelho
+
+#E2B33F amarelo escuto 
+(235, 190, 80) borda 
+
+
+Paleta completa
+Cor	RGB	Uso
+#f2eee4	rgb(242, 238, 228)	Fundo principal, cabeçalho e seção de dicas
+#bb2e2e	rgb(187, 46, 46)	Vermelho principal da marca, CTAs, títulos de apoio, destaques, ícones e bloco das manilhas
+#791f1f	rgb(121, 31, 31)	Bordas e sombras escuras dos botões vermelhos e carta da marca
+#e74c3c	rgb(231, 76, 60)	Naipe vermelho no placar
+
+#f1c75b	rgb(241, 199, 91)	Amarelo principal: botão +1, rodada ativa, selos, ícones e links de destaque
+#ffda73	rgb(255, 218, 115)	Hover do botão amarelo +1
+#191812	rgb(25, 24, 18)	Texto escuro do botão amarelo +1
+
+#1b1a17	rgb(27, 26, 23)	Texto principal, botões escuros, carta preta e painel autenticado
+
+#191a17	rgb(25, 26, 23)	Fundo da seção do placar e rodapé
+#22231f	rgb(34, 35, 31)	Fundo interno do painel do placar
+
+#282923	rgb(40, 41, 35)	Carta escura da marca sobre fundos escuros
+#12120f	rgb(18, 18, 15)	Overlay do modal de autenticação, usado com 75% de opacidade
+#0b0d0a	rgb(11, 13, 10)	Fundo raiz da página
+#f8f5ed	rgb(248, 245, 237)	Modal, tabela do ranking, cards de dicas e carta clara da marca
+#eee9de	rgb(238, 233, 222)	Cards da seção “Como jogar”
+#eadccf	rgb(234, 220, 207)	Aviso do ranking para visitantes
+#ded6c5	rgb(222, 214, 197)	Fundo da seção “Como jogar”
+#ffffff	rgb(255, 255, 255)	Textos sobre fundos escuros, bordas das cartas e superfícies translúcidas
+#000000	rgb(0, 0, 0)	Textos/bordas translúcidos, sombras e textura pontilhada do hero
+transparent	—	Espaço transparente da textura radial do hero
+*/
+
+
 *{
     margin: 0;
     padding: 0;
@@ -89,7 +130,7 @@ main{
 
 #blefa{
 
-    color: red;
+    color: #bb2e2e;
     font-weight: bold;
 
 }
@@ -104,7 +145,7 @@ main{
 }
 
 #inicio_card span{
-    color: red;
+    color: #bb2e2e;
 }
 
 #texto_inicio{
@@ -121,7 +162,7 @@ main{
 }
 #apreda{
 
-    background-color: red;
+    background-color: #bb2e2e;
     color: white;
     padding: 1pc;
     border-radius: 2pc;
@@ -143,7 +184,7 @@ main{
 
 
 #placar{
-    background-color: #000000;
+    background-color: #191a17;
     grid-column: 1/4;
     color: white;
     margin-top: 3pc;
@@ -155,16 +196,19 @@ main{
 
 #placar_placar{
     grid-column: 2;
-    background-color:cadetblue;
+    background-color:#1E1E1E;
     display: flex;
 
-    border: 2px solid green;
+    margin: 3pc 0 5pc 0;
+
+    border: 4px solid #282923;
+    border-radius: 2pc;
 
 }
 
 .card{
     width: 100%;
-    height: 100%;
+    padding: 3pc 0;
 
     display: flex;
     flex-direction: column;
@@ -172,9 +216,18 @@ main{
     justify-content: center;
     gap: 1pc;
 
-    border: 2px solid green;
 
-   
+    
+}
+#borda_esquerda{
+    border-left: 4px solid #282923;
+    
+
+}
+#borda_direita{
+    border-right: 4px solid #282923;
+
+
 }
 
 #rodada{
@@ -184,6 +237,7 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 1pc;
+    padding: 3pc 0;
 
 }   
 .valendo{
@@ -216,15 +270,17 @@ main{
 
 .maisUm{
     padding: 0.8pc 2pc;
-    border: 2px solid yellow;
-    background-color: yellow;
+    border: 2px solid #f1c75b;
+    background-color: #f1c75b;
     border-radius: 2pc;
     cursor: pointer;
+    color: #191812;
 }
 .truco{
     padding: 0.8pc 2pc;
-    border: 2px solid rgb(172, 241, 33);
-    background-color: rgb(172, 241, 33);
+    border: 2px solid #f1c75b;
+    background-color: #282923;
     border-radius: 2pc;
     cursor: pointer;
+
 }
