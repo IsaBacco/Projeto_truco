@@ -37,13 +37,27 @@ Cor	RGB	Uso
 #000000	rgb(0, 0, 0)	Textos/bordas translúcidos, sombras e textura pontilhada do hero
 transparent	—	Espaço transparente da textura radial do hero
 */
+:root{
+    --preto: #000000;
+    --vermelho :#bb2e2e ;
+    --amarelo: #f1c75b; 
+    --borda_placar: #383835;
 
+    --bt_menosUm: #2e312d;
+    --borda_btMeno: #4e4f4c;
+    --botao_truco:  #373325; 
+    --borda_bttruco: #816f3a;
+    --cor_bt: #8c8672;
+
+    --cor_subTitulo: #6e716c;
+}
 
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     border: none;
+    
 }
 
 body{
@@ -51,10 +65,13 @@ body{
     grid-template-columns: 0.2fr 2fr 0.2fr;
     grid-template-rows: auto; 
 }
+button{
+    cursor: pointer;
+}
 
 header{
     box-sizing: border-box;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid var(--preto);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -85,7 +102,7 @@ header{
 
 #navbar a::placeholder{
     text-decoration: none;
-    color: red;
+    color: var(--vermelho);
     font-weight: bold;
 
 }
@@ -99,11 +116,11 @@ header{
 #login{
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: var(--preto);
 }
 
 #cadastrase{
-    background-color: black;
+    background-color: var(--preto);
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -130,7 +147,7 @@ main{
 
 #blefa{
 
-    color: #bb2e2e;
+    color: var(--vermelho);
     font-weight: bold;
 
 }
@@ -145,7 +162,7 @@ main{
 }
 
 #inicio_card span{
-    color: #bb2e2e;
+    color: var(--vermelho);
 }
 
 #texto_inicio{
@@ -162,7 +179,7 @@ main{
 }
 #apreda{
 
-    background-color: #bb2e2e;
+    background-color: var(--vermelho);
     color: white;
     padding: 1pc;
     border-radius: 2pc;
@@ -170,13 +187,12 @@ main{
 }
 
 #entrar{
-    color: #000000;
+    color: var(--preto);
     padding: 1pc;
     border-radius: 2pc;
     font-weight: bold;
-    border: 1px solid #000000;
+    border: 1px solid var(--preto);
 }
-
 
 
 
@@ -191,7 +207,22 @@ main{
     display: grid;
     grid-template-columns: 0.2fr 2fr 0.2fr;
     grid-template-rows: auto; 
+    
+}
+#titulo_placar{
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2pc;
 
+}
+#titulo_placar button{
+    background-color: #191a17;
+    border: 2px solid var(--borda_btMeno);
+    color: #a3a2a3;
+    font-weight: bold;
+    padding:  1pc;
+    border-radius: 2pc;
 }
 
 #placar_placar{
@@ -201,7 +232,7 @@ main{
 
     margin: 3pc 0 5pc 0;
 
-    border: 4px solid #282923;
+    border: 4px solid var(--borda_placar);
     border-radius: 2pc;
 
 }
@@ -220,12 +251,12 @@ main{
     
 }
 #borda_esquerda{
-    border-left: 4px solid #282923;
+    border-left: 4px solid var(--borda_placar);
     
 
 }
 #borda_direita{
-    border-right: 4px solid #282923;
+    border-right: 4px solid var(--borda_placar);
 
 
 }
@@ -243,6 +274,13 @@ main{
 .valendo{
     padding: 0.7pc 1.1pc;
     border-radius: 3pc;
+
+
+}
+#valendo button{
+    background-color: var(--bt_menosUm);
+    border: 2px solid var(--borda_btMeno);
+    color: var(--cor_bt);
 }
 #doze{
      padding: 0.9pc 0.9pc;
@@ -252,7 +290,6 @@ main{
 
 
 .placar_botao button{
-    cursor: pointer;
     font-weight: bold;
 
 }
@@ -262,25 +299,41 @@ main{
 }
 .menosUm{
     padding: 0.8pc 2pc;
-    border: 2px solid grey;
-    background-color: grey;
+    border: 2px solid var(--borda_btMeno);
+    background-color: var(--bt_menosUm);
     border-radius: 2pc;
-    cursor: pointer;
+    color: var(--cor_bt);
+    font-weight: bold;
 }
 
 .maisUm{
     padding: 0.8pc 2pc;
-    border: 2px solid #f1c75b;
-    background-color: #f1c75b;
+    border: 2px solid var(--amarelo);
+    background-color: var(--amarelo);
     border-radius: 2pc;
-    cursor: pointer;
     color: #191812;
 }
 .truco{
     padding: 0.8pc 2pc;
-    border: 2px solid #f1c75b;
-    background-color: #282923;
+    border: 2px solid var(--borda_bttruco);
+    background-color: var(--botao_truco);
     border-radius: 2pc;
-    cursor: pointer;
+    color: var();
+}
 
+.dupla{
+    color: var(--cor_subTitulo);
+    font-weight: bold;
+}
+.nome_equipe{
+    font-size: 2.5pc;
+}
+.ponto{
+    font-size: 7pc;
+
+}
+
+.partida_valendo{
+    color: var(--amarelo);
+    font-weight: bold;
 }
