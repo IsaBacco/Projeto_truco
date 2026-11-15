@@ -337,3 +337,95 @@ main{
     color: var(--amarelo);
     font-weight: bold;
 }
+
+
+
+
+
+
+
+/* 
+#comoJogar{
+    background-color: #ded6c5;
+} */
+
+#comoJogar{
+    grid-column: 2;
+    margin-top: 2pc;
+}
+
+#titulo_jogar {
+    margin-bottom: 5pc;
+}
+#titulo_jogar h1{
+    font-size: 4pc;
+}
+#p_jogar{
+    color: var(--vermelho);
+    font-weight: bold;
+}
+.p_descricao{
+    color: var(--cor_subTitulo);
+    margin-top: 0.7pc;
+}
+
+
+#cards_jogar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.cards_como{
+
+    padding: 4pc 2.5pc;
+    display: flex;
+    flex-direction: column;
+    gap: 1pc;
+}
+#card_lt{
+    border: 2px solid var(--cor_subTitulo);
+    border-top-left-radius: 2pc;
+}
+#card_lb{
+    border: 2px solid  var(--cor_subTitulo);
+    border-top: none;
+    border-bottom-left-radius: 2pc;
+    
+}
+
+#card_rt{
+    border: 2px solid var(--cor_subTitulo);
+    border-left: none;
+    border-top-right-radius: 2pc;
+}
+#card_rb{
+    border: 2px solid  var(--cor_subTitulo);
+    border-top: none;
+    border-left: none;
+    border-bottom-right-radius: 2pc;
+}
+.passo{
+    color: var(--vermelho);
+    font-weight: bold;
+}
+
+#nipes{
+    background-color: var(--vermelho);
+    margin: 2pc 0;
+    padding: 2pc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1pc;
+}
+#nipes p{
+    color: var(--cor_subTitulo);
+}
+
+#order_nipes p{
+    font-weight: bold;
+    color: var(--cor_subTitulo);
+}
+
+#order_nipes h1{
+    color: white;
+}
