@@ -343,6 +343,50 @@ main{
 
 
 
+#raking{
+    grid-column: 2;
+    margin-top: 3pc;
+}
+#ranking_titulo p{
+    color: var(--vermelho);
+    font-weight: bold;
+    margin-bottom: 1pc;
+}
+#ranking_titulo h2{
+    font-size: 4pc;
+}
+
+#aparecer_ranking{
+    background-color: lightcoral;
+    margin-top: 2pc;
+    border-radius: 2pc;
+}
+
+#raking_cards p{
+    color: var(--cor_subTitulo);
+}
+
+#rk_entrar{
+    font-weight: bold;
+    border: 1px solid var(--cor_subTitulo);
+    border-radius: 2pc;
+    padding: 0.5pc 1.4pc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #comoJogar{
