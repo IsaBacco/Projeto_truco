@@ -44,10 +44,10 @@ body{
 #login{
     background-color: white;
     border-radius: 2pc;
-    min-height: 60vh;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
-    padding: 2pc;
+    padding: 2pc ;
 
 
 }
@@ -70,7 +70,7 @@ body{
 }
 
 .inp_campos{
-    margin: 1pc 0;
+    margin: 0.5pc 0;
     display: flex;
     flex-direction: column;
     
@@ -84,7 +84,7 @@ body{
     color: white;
     font-weight: bold;
     background-color: var(--vermelho);
-    padding: 1pc;
+    padding: 1pc; 
     border-radius: 2pc;
     margin-top: 1pc;
 }
@@ -92,7 +92,7 @@ body{
 #rodape{
     display: flex;
     justify-content: center;
-    margin-top: 1pc;
+    /* margin-top: 1pc; */
 
 }
 
