@@ -92,7 +92,7 @@ body{
 #rodape{
     display: flex;
     justify-content: center;
-    /* margin-top: 1pc; */
+    margin: 0.5pc;
 
 }
 
@@ -102,4 +102,8 @@ body{
 
 #rodape p{
     color: var(--cor_subTitulo);
+}
+
+#link ::selection{
+    border: 2pc solid black;
 }

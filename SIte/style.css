@@ -329,6 +329,21 @@ main{
 .nome_equipe{
     font-size: 2.5pc;
 }
+#nome_time{
+    background-color: #1E1E1E;
+    border: none;
+    color: white;
+    font-size: 2pc;
+    margin: 1pc 0;
+    width: 15pc;
+    font-weight: bold;
+    text-align: center;
+    word-break: break-all;
+}
+#nome_time:focus{
+    outline: none;
+}
+
 .ponto{
     font-size: 7pc;
 
