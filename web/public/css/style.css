@@ -1,0 +1,583 @@
+/* CORES
+
+
+#1B1B1B fundo do placar
+#1E1E1E fundo 2
+RGB: (226, 179, 63) amarelo
+#bb2e2e vermelho
+
+#E2B33F amarelo escuto 
+(235, 190, 80) borda 
+
+
+Paleta completa
+Cor	RGB	Uso
+#f2eee4	rgb(242, 238, 228)	Fundo principal, cabeçalho e seção de dicas
+#bb2e2e	rgb(187, 46, 46)	Vermelho principal da marca, CTAs, títulos de apoio, destaques, ícones e bloco das manilhas
+#791f1f	rgb(121, 31, 31)	Bordas e sombras escuras dos botões vermelhos e carta da marca
+#e74c3c	rgb(231, 76, 60)	Naipe vermelho no placar
+
+#f1c75b	rgb(241, 199, 91)	Amarelo principal: botão +1, rodada ativa, selos, ícones e links de destaque
+#ffda73	rgb(255, 218, 115)	Hover do botão amarelo +1
+#191812	rgb(25, 24, 18)	Texto escuro do botão amarelo +1
+
+#1b1a17	rgb(27, 26, 23)	Texto principal, botões escuros, carta preta e painel autenticado
+
+#191a17	rgb(25, 26, 23)	Fundo da seção do placar e rodapé
+#22231f	rgb(34, 35, 31)	Fundo interno do painel do placar
+
+#282923	rgb(40, 41, 35)	Carta escura da marca sobre fundos escuros
+#12120f	rgb(18, 18, 15)	Overlay do modal de autenticação, usado com 75% de opacidade
+#0b0d0a	rgb(11, 13, 10)	Fundo raiz da página
+#f8f5ed	rgb(248, 245, 237)	Modal, tabela do ranking, cards de dicas e carta clara da marca
+#eee9de	rgb(238, 233, 222)	Cards da seção “Como jogar”
+#eadccf	rgb(234, 220, 207)	Aviso do ranking para visitantes
+#ded6c5	rgb(222, 214, 197)	Fundo da seção “Como jogar”
+#ffffff	rgb(255, 255, 255)	Textos sobre fundos escuros, bordas das cartas e superfícies translúcidas
+#000000	rgb(0, 0, 0)	Textos/bordas translúcidos, sombras e textura pontilhada do hero
+transparent	—	Espaço transparente da textura radial do hero
+*/
+:root{
+    --preto: #000000;
+    --vermelho :#bb2e2e ;
+    --amarelo: #f1c75b; 
+    --borda_placar: #383835;
+
+    --bt_menosUm: #2e312d;
+    --borda_btMeno: #4e4f4c;
+    --botao_truco:  #373325; 
+    --borda_bttruco: #816f3a;
+    --cor_bt: #8c8672;
+
+    --cor_subTitulo: #6e716c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    
+}
+
+body{
+    display: grid;
+    grid-template-columns: 0.2fr 2fr 0.2fr;
+    grid-template-rows: auto; 
+}
+button{
+    cursor: pointer;
+}
+
+header{
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--preto);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1pc;
+    grid-column: 1/4;
+    grid-row: 1;
+    margin-bottom: 3pc;
+
+}
+
+#logoNome{
+    display: flex;
+    align-items: center;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    gap: 2pc;
+}
+
+#navbar a{
+    text-decoration: none;
+    color: grey;
+    font-weight: bold;
+
+}
+
+#navbar a::placeholder{
+    text-decoration: none;
+    color: var(--vermelho);
+    font-weight: bold;
+
+}
+
+#botao{
+    display: flex;
+    align-items: center;
+    gap: 2pc;
+}
+
+#login{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--preto);
+    background-color: white;
+}
+
+#cadastrase{
+    background-color: var(--preto);
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.8pc;
+    border-radius: 2pc;
+}
+
+
+
+
+
+main{
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: 0.2fr 2fr 0.2fr;
+    grid-template-rows: auto; 
+}
+
+#inicio{
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#blefa{
+
+    color: var(--vermelho);
+    font-weight: bold;
+
+}
+#inicio_card{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    grid-column: 1;
+}
+#inicio_card h1{
+    font-size: 100px;
+}
+
+#inicio_card span{
+    color: var(--vermelho);
+}
+
+#texto_inicio{
+    color: grey;
+}
+
+
+
+#botao_inicio{
+    margin-top: 3pc;
+    display: flex;
+    gap: 2pc;
+    grid-column: 1;
+}
+#apreda{
+
+    background-color: var(--vermelho);
+    color: white;
+    padding: 1pc;
+    border-radius: 2pc;
+    font-weight: bold;
+}
+
+#entrar{
+    color: var(--preto);
+    padding: 1pc;
+    border-radius: 2pc;
+    font-weight: bold;
+    border: 1px solid var(--preto);
+}
+
+
+
+
+
+
+#placar{
+    background-color: #191a17;
+    grid-column: 1/4;
+    color: white;
+    margin-top: 3pc;
+    display: grid;
+    grid-template-columns: 0.2fr 2fr 0.2fr;
+    grid-template-rows: auto; 
+    
+}
+#titulo_placar{
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2pc;
+
+}
+#titulo_placar button{
+    background-color: #191a17;
+    border: 2px solid var(--borda_btMeno);
+    color: #a3a2a3;
+    font-weight: bold;
+    padding:  1pc;
+    border-radius: 2pc;
+}
+
+#placar_placar{
+    grid-column: 2;
+    background-color:#1E1E1E;
+    display: flex;
+
+    margin: 3pc 0 5pc 0;
+
+    border: 4px solid var(--borda_placar);
+    border-radius: 2pc;
+
+}
+
+.card{
+    width: 100%;
+    padding: 3pc 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1pc;
+
+
+    
+}
+#borda_esquerda{
+    border-left: 4px solid var(--borda_placar);
+    
+
+}
+#borda_direita{
+    border-right: 4px solid var(--borda_placar);
+
+
+}
+
+#rodada{
+
+    margin: 5pc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1pc;
+    padding: 3pc 0;
+
+}   
+.valendo{
+    padding: 0.7pc 1.1pc;
+    border-radius: 3pc;
+
+
+}
+#valendo button{
+    background-color: var(--bt_menosUm);
+    border: 2px solid var(--borda_btMeno);
+    color: var(--cor_bt);
+}
+#doze{
+     padding: 0.9pc 0.9pc;
+     border-radius: 3pc;
+}
+
+
+
+.placar_botao button{
+    font-weight: bold;
+
+}
+.placar_botao{
+    display: flex;
+    gap: 1pc;
+}
+.menosUm{
+    padding: 0.8pc 2pc;
+    border: 2px solid var(--borda_btMeno);
+    background-color: var(--bt_menosUm);
+    border-radius: 2pc;
+    color: var(--cor_bt);
+    font-weight: bold;
+}
+
+.maisUm{
+    padding: 0.8pc 2pc;
+    border: 2px solid var(--amarelo);
+    background-color: var(--amarelo);
+    border-radius: 2pc;
+    color: #191812;
+}
+.truco{
+    padding: 0.8pc 2pc;
+    border: 2px solid var(--borda_bttruco);
+    background-color: var(--botao_truco);
+    border-radius: 2pc;
+    color: var();
+}
+
+.dupla{
+    color: var(--cor_subTitulo);
+    font-weight: bold;
+}
+.nome_equipe{
+    font-size: 2.5pc;
+}
+#nome_time{
+    background-color: #1E1E1E;
+    border: none;
+    color: white;
+    font-size: 2pc;
+    margin: 1pc 0;
+    width: 15pc;
+    font-weight: bold;
+    text-align: center;
+    word-break: break-all;
+}
+#nome_time:focus{
+    outline: none;
+}
+
+.ponto{
+    font-size: 7pc;
+
+}
+
+.partida_valendo{
+    color: var(--amarelo);
+    font-weight: bold;
+}
+
+
+
+
+
+
+#raking{
+    grid-column: 2;
+    margin-top: 3pc;
+}
+#ranking_titulo p{
+    color: var(--vermelho);
+    font-weight: bold;
+    margin-bottom: 1pc;
+}
+#ranking_titulo h2{
+    font-size: 4pc;
+}
+
+#aparecer_ranking{
+    background-color: lightcoral;
+    margin-top: 2pc;
+    border-radius: 2pc;
+}
+
+#raking_cards p{
+    color: var(--cor_subTitulo);
+}
+
+#rk_entrar{
+    font-weight: bold;
+    border: 1px solid var(--cor_subTitulo);
+    border-radius: 2pc;
+    padding: 0.5pc 1.4pc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#comoJogar{
+    background-color: #ded6c5;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: 0.2fr 2fr 0.2fr;
+    grid-template-rows: auto; 
+}
+
+#titulo_jogar {
+    margin-bottom: 5pc;
+    grid-column: 2;
+    padding-top: 4pc;
+}
+#titulo_jogar h1{
+    font-size: 4pc;
+}
+#p_jogar{
+    color: var(--vermelho);
+    font-weight: bold;
+}
+.p_descricao{
+    color: var(--cor_subTitulo);
+    margin-top: 0.7pc;
+}
+
+
+#cards_jogar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 2;
+    background-color: white;
+    border-radius: 2pc;
+}
+.cards_como{
+
+    padding: 4pc 2.5pc;
+    display: flex;
+    flex-direction: column;
+    gap: 1pc;
+}
+#card_lt{
+    border: 2px solid var(--cor_subTitulo);
+    border-top-left-radius: 2pc;
+}
+#card_lb{
+    border: 2px solid  var(--cor_subTitulo);
+    border-top: none;
+    border-bottom-left-radius: 2pc;
+    
+}
+
+#card_rt{
+    border: 2px solid var(--cor_subTitulo);
+    border-left: none;
+    border-top-right-radius: 2pc;
+}
+#card_rb{
+    border: 2px solid  var(--cor_subTitulo);
+    border-top: none;
+    border-left: none;
+    border-bottom-right-radius: 2pc;
+}
+.passo{
+    color: var(--vermelho);
+    font-weight: bold;
+}
+
+#nipes{
+    background-color: var(--vermelho);
+    margin: 2pc 0;
+    padding: 2pc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1pc;
+    grid-column: 2;
+}
+#nipes p{
+    color: var(--cor_subTitulo);
+}
+
+#order_nipes p{
+    font-weight: bold;
+    color: var(--cor_subTitulo);
+}
+
+#order_nipes h1{
+    color: white;
+}
+
+
+
+
+
+#dicas{
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#titulo_dicas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3pc;
+}
+#titulo_dicas p{
+    color: var(--vermelho);
+    font-weight: bold;
+}
+#titulo_dicas h1{
+    font-size: 4pc;
+}
+
+#cards_dicas{
+    display: flex;
+    gap: 2pc;
+   
+    
+}
+.cards_dicas{
+    border: 1px solid var(--cor_subTitulo);
+    border-radius: 2pc;
+    padding: 2pc;
+    display: flex;
+    flex-direction: column;
+    gap: 1pc;
+    margin: 3pc 0;
+}
+.cards_titulos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1pc;
+}
+.dicas_tag{
+    font-weight: bold;
+    background-color: var(--amarelo);
+    border-radius: 2pc;
+    padding: 0.4pc;
+    font-size: 0.8pc;
+}
+.numero{
+    color: var(--cor_subTitulo);
+}
+.dicas_descricao{
+    color: var(--cor_subTitulo);
+}
+
+
+footer{
+    grid-column: 1/4;
+    background-color: #191a17;
+    display: grid;
+    grid-template-columns: 0.2fr 2fr 0.2fr;
+    grid-template-rows: auto; 
+
+}
+
+#footer_div{
+
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 2pc 0;
+    align-items: center;
+}
+#footer_desc{
+    color: var(--cor_subTitulo);
+    font-weight: bold;
+}
+#voltar_footer{
+    color: var(--amarelo);
+    font-weight: bold;
+
+} 
