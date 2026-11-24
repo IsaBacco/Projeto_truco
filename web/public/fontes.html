@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparativo de Fontes — Textos Menores e Botões</title>
+
+  <!-- Fontes do Google Fonts ideais para UI, parágrafos e botões -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f3efe6;
+      color: #161615;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 48px 24px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .card-fonte {
+      background-color: #f7f4ed;
+      border: 1px solid #e2ddd0;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cabecalho-fonte {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e7e2d6;
+    }
+
+    .nome-fonte {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #b72b28;
+    }
+
+    .estilo-info {
+      font-size: 12px;
+      color: #6b665d;
+    }
+
+    /* Elementos internos do bloco */
+    .etiqueta-topo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #b72b28;
+    }
+
+    .etiqueta-topo::before {
+      content: "";
+      width: 22px;
+      height: 1.5px;
+      background-color: #b72b28;
+      display: inline-block;
+    }
+
+    .descricao {
+      font-size: 18px;
+      line-height: 1.55;
+      color: #55524b;
+      max-width: 620px;
+      font-weight: 400;
+    }
+
+    .acoes {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 4px;
+    }
+
+    .btn-primario {
+      background-color: #b72b28;
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 13px 26px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #8a1d1b;
+    }
+
+    .btn-secundario {
+      background-color: transparent;
+      color: #161615;
+      border: 1.5px solid #d5cfc2;
+      border-radius: 999px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .link-acao {
+      color: #b72b28;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 8px;
+    }
+
+    /* Famílias testadas */
+    .f-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .f-dmsans  { font-family: 'DM Sans', sans-serif; }
+    .f-inter   { font-family: 'Inter', sans-serif; }
+    .f-manrope { font-family: 'Manrope', sans-serif; }
+    .f-rubik   { font-family: 'Rubik', sans-serif; }
+    .f-work    { font-family: 'Work Sans', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- 1. Plus Jakarta Sans -->
+    <section class="card-fonte f-jakarta">
+      <div class="cabecalho-fonte">
+        <span class="nome-fonte">1. Plus Jakarta Sans</span>
+        <span class="estilo-info">Moderna, limpa e levemente arredondada</span>
+      </div>
+      <div class="etiqueta-topo">PLACAR, RANKING E COMUNIDADE</div>
+      <p class="descricao">Marque os pontos da sua partida, acompanhe os melhores da mesa e aprenda tudo para mandar bem no truco.</p>
+      <div class="acoes">
+        <button class="btn-primario" type="button">Abrir placar</button>
+        <button class="btn-secundario" type="button">Aprender a jogar</button>
+        <a class="link-acao" href="#ranking">Entrar no ranking &rarr;</a>
+      </div>
+    </section>
+
+    <!-- 2. DM Sans -->
+    <section class="card-fonte f-dmsans">
+      <div class="cabecalho-fonte">
+        <span class="nome-fonte">2. DM Sans</span>
+        <span class="estilo-info">Geométrica neutra, ótima para botões e UI</span>
+      </div>
+      <div class="etiqueta-topo">PLACAR, RANKING E COMUNIDADE</div>
+      <p class="descricao">Marque os pontos da sua partida, acompanhe os melhores da mesa e aprenda tudo para mandar bem no truco.</p>
+      <div class="acoes">
+        <button class="btn-primario" type="button">Abrir placar</button>
+        <button class="btn-secundario" type="button">Aprender a jogar</button>
+        <a class="link-acao" href="#ranking">Entrar no ranking &rarr;</a>
+      </div>
+    </section>
+
+    <!-- 3. Inter -->
+    <section class="card-fonte f-inter">
+      <div class="cabecalho-fonte">
+        <span class="nome-fonte">3. Inter</span>
+        <span class="estilo-info">Alta legibilidade em tamanhos pequenos</span>
+      </div>
+      <div class="etiqueta-topo">PLACAR, RANKING E COMUNIDADE</div>
+      <p class="descricao">Marque os pontos da sua partida, acompanhe os melhores da mesa e aprenda tudo para mandar bem no truco.</p>
+      <div class="acoes">
+        <button class="btn-primario" type="button">Abrir placar</button>
+        <button class="btn-secundario" type="button">Aprender a jogar</button>
+        <a class="link-acao" href="#ranking">Entrar no ranking &rarr;</a>
+      </div>
+    </section>
+
+    <!-- 4. Manrope -->
+    <section class="card-fonte f-manrope">
+      <div class="cabecalho-fonte">
+        <span class="nome-fonte">4. Manrope</span>
+        <span class="estilo-info">Semigeométrica acolhedora e equilibrada</span>
+      </div>
+      <div class="etiqueta-topo">PLACAR, RANKING E COMUNIDADE</div>
+      <p class="descricao">Marque os pontos da sua partida, acompanhe os melhores da mesa e aprenda tudo para mandar bem no truco.</p>
+      <div class="acoes">
+        <button class="btn-primario" type="button">Abrir placar</button>
+        <button class="btn-secundario" type="button">Aprender a jogar</button>
+        <a class="link-acao" href="#ranking">Entrar no ranking &rarr;</a>
+      </div>
+    </section>
+
+    <!-- 5. Rubik -->
+    <section class="card-fonte f-rubik">
+      <div class="cabecalho-fonte">
+        <span class="nome-fonte">5. Rubik</span>
+        <span class="estilo-info">Cantos levemente arredondados, tom descontraído</span>
+      </div>
+      <div class="etiqueta-topo">PLACAR, RANKING E COMUNIDADE</div>
+      <p class="descricao">Marque os pontos da sua partida, acompanhe os melhores da mesa e aprenda tudo para mandar bem no truco.</p>
+      <div class="acoes">
+        <button class="btn-primario" type="button">Abrir placar</button>
+        <button class="btn-secundario" type="button">Aprender a jogar</button>
+        <a class="link-acao" href="#ranking">Entrar no ranking &rarr;</a>
+      </div>
+    </section>
+
+    <!-- 6. Work Sans -->
+    <section class="card-fonte f-work">
+      <div class="cabecalho-fonte">
+        <span class="nome-fonte">6. Work Sans</span>
+        <span class="estilo-info">Editorial e clara para textos corridos</span>
+      </div>
+      <div class="etiqueta-topo">PLACAR, RANKING E COMUNIDADE</div>
+      <p class="descricao">Marque os pontos da sua partida, acompanhe os melhores da mesa e aprenda tudo para mandar bem no truco.</p>
+      <div class="acoes">
+        <button class="btn-primario" type="button">Abrir placar</button>
+        <button class="btn-secundario" type="button">Aprender a jogar</button>
+        <a class="link-acao" href="#ranking">Entrar no ranking &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
