@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+
     <title>Nsoqc</title>
 </head>
 <body>
@@ -60,21 +61,22 @@
 
             <div id="titulo_placar">
                 <h1>PLACAR DE MESA</h1>
-                <button>REINICAR PARTIDA</button>
+                <button onclick="reiniciarPartida()">REINICAR PARTIDA</button>
             </div>
+            
             <div id="placar_placar">
+                <div id="vitoria"></div>
 
                 <div class="card" id="borda_direita"> 
 
                     <img src="" alt="">
                     <p class="dupla">EQUIPE 01</p>
-                    <input id="nome_time" type="text" value="CLAN TEPES">
+                    <input  id="nome_time1" type="text" value="CLAN TEPES">
                     <!-- <h1 class="nome_equipe">CLAN TEPES</h1> -->
-                    <h1 class="ponto">7</h1>
+                    <h1 class="ponto" id="ponto_time1">0</h1>
                     <div class="placar_botao">
-                        <button class="menosUm">-1</button>
-                        <button class="maisUm">+1</button>
-                        <button class="truco">+3</button> 
+                        <button id="btn_menos1" class="menosUm" onclick="subtrairPonto(1)">-1</button>
+                        <button id="btn_mais1" class="maisUm" onclick="somarPonto(1)">+1</button>
                     </div>
                 </div>
 
@@ -84,14 +86,14 @@
 
                     <div id="valendo" class="placar_botao">
 
-                        <button class="valendo">1</button>
-                        <button class="valendo">3</button>
-                        <button class="valendo">6</button>
-                        <button class="valendo">9</button>
-                        <button id="doze">12</button>
+                        <button id="btn_val_1" class="valendo" onclick="escolherValendo(1)">1</button>
+                        <button id="btn_val_3" class="valendo" onclick="escolherValendo(3)">3</button>
+                        <button id="btn_val_6" class="valendo" onclick="escolherValendo(6)">6</button>
+                        <button id="btn_val_9" class="valendo" onclick="escolherValendo(9)">9</button>
+                        <button id="doze" onclick="escolherValendo(12)">12</button>
                     </div>
 
-                    <p class="partida_valendo">VALENDO 3</p> 
+                    <p class="partida_valendo" id="partida_valendo">VALENDO 1</p> 
                     <!-- tem que mudar dinamicamente -->
                 </div>
 
@@ -99,13 +101,12 @@
                 <div class="card" id="borda_esquerda">
                     <img src="" alt="">
                     <p class="dupla">EQUIPE 01</p>
-                    <input id="nome_time" type="text" value="R||M">
+                    <input  id="nome_time2" type="text" value="R||M">
                     <!-- <h1 class="nome_equipe">R||M</h1> -->
-                    <h1 class="ponto">7</h1>
+                    <h1 class="ponto" id="ponto_time2">0</h1>
                     <div class="placar_botao">
-                        <button class="menosUm">-1</button>
-                        <button class="maisUm">+1</button>
-                        <button class="truco">+3</button> 
+                        <button id="btn_menos2" class="menosUm" onclick="subtrairPonto(2)">-1</button>
+                        <button id="btn_mais2" class="maisUm" onclick="somarPonto(2)">+1</button>
                         <!-- muda com forme o valor da partida -->
                     </div>
                 </div>
@@ -255,5 +256,114 @@
 
     </footer>
 
+    <script>
+        let valendo = 1;
+        let ponto1 = 0;
+        let ponto2 = 0;
+        let travado = false;
+        let botoesValendo = { 1: "btn_val_1", 3: "btn_val_3", 6: "btn_val_6", 9: "btn_val_9", 12: "doze" };
+
+        function escolherValendo(valor) {
+            if (travado == false) {
+                valendo = valor;
+                document.getElementById("partida_valendo").textContent = "VALENDO " + valor;
+                document.getElementById("btn_mais1").textContent = "+" + valor;
+                document.getElementById("btn_menos1").textContent = "-" + valor;
+                document.getElementById("btn_mais2").textContent = "+" + valor;
+                document.getElementById("btn_menos2").textContent = "-" + valor;
+                destaqueValendo();
+            }
+        }
+
+        function destaqueValendo() {
+            let ids = ["btn_val_1", "btn_val_3", "btn_val_6", "btn_val_9", "doze" ];
+            for (let i = 0; i < ids.length; i = i + 1) {
+                document.getElementById(ids[i]).style.backgroundColor = "";
+                document.getElementById(ids[i]).style.color = "";
+                document.getElementById(ids[i]).style.borderColor = "";
+            }
+            let ativo = document.getElementById(botoesValendo[valendo]);
+            ativo.style.backgroundColor = "#f1c75b";
+            ativo.style.color = "#191812";
+            ativo.style.borderColor = "#f1c75b";
+        }
+
+        function somarPonto(time) {
+            if (travado == false) {
+                if (time == 1) {
+                    ponto1 = ponto1 + valendo;
+                    if (ponto1 > 12) {
+                        ponto1 = 12;
+                    }
+                    document.getElementById("ponto_time1").textContent = ponto1;
+                    if (ponto1 == 12) {
+                        mostrarVitoria(1);
+                    }
+                } else {
+                    ponto2 = ponto2 + valendo;
+                    if (ponto2 > 12) {
+                        ponto2 = 12;
+                    }
+                    document.getElementById("ponto_time2").textContent = ponto2;
+                    if (ponto2 == 12) {
+                        mostrarVitoria(2);
+                    }
+                }
+            }
+        }
+
+        function subtrairPonto(time) {
+            if (travado == false) {
+                if (time == 1) {
+                    ponto1 = ponto1 - valendo;
+                    if (ponto1 < 0) {
+                        ponto1 = 0;
+                    }
+                    document.getElementById("ponto_time1").textContent = ponto1;
+                } else {
+                    ponto2 = ponto2 - valendo;
+                    if (ponto2 < 0) {
+                        ponto2 = 0;
+                    }
+                    document.getElementById("ponto_time2").textContent = ponto2;
+                }
+            }
+        }
+
+        function mostrarVitoria(time) {
+            travado = true;
+            let nome = "";
+            if (time == 1) {
+                nome = document.getElementById("nome_time1").value;
+                if (nome == "") {
+                    nome = "EQUIPE 01";
+                }
+            } else {
+                nome = document.getElementById("nome_time2").value;
+                if (nome == "") {
+                    nome = "EQUIPE 02";
+                }
+            }
+            let banner = document.getElementById("vitoria");
+            banner.textContent = "VITÓRIA DE " + nome + "! A QUEDA TERMINOU EM 12 PONTOS.";
+            banner.style.display = "block";
+            document.getElementById("placar_placar").style.marginTop = "0.1";
+        }
+
+        function reiniciarPartida() {
+            ponto1 = 0;
+            ponto2 = 0;
+            travado = false;
+            document.getElementById("ponto_time1").textContent = ponto1;
+            document.getElementById("ponto_time2").textContent = ponto2;
+            escolherValendo(1);
+            let banner = document.getElementById("vitoria");
+            banner.textContent = "";
+            banner.style.display = "none";
+            document.getElementById("placar_placar").style.marginTop = "3pc";
+        }
+
+        destaqueValendo();
+    </script>
 </body>
 </html>
