@@ -179,10 +179,16 @@ main{
     font-weight: bold;
     border: 1px solid var(--preto);
 }
+
+#cartas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #img_cartas{
     grid-column: 2;
     grid-row: 1;
-    width: 50%;
+    width: 55pc;
 }
 
 
@@ -268,6 +274,23 @@ main{
     grid-row: 2;
 
 }   
+
+#nipe_coracao{
+        width: 2pc;
+    margin-bottom: 1pc;
+    background-color: var(--vermelho);
+    padding: 0.8pc;
+    border-radius: 3pc;
+}
+
+#nipe_espada{
+    width: 2pc;
+    margin-bottom: 1pc;
+    background-color: var(--amarelo);
+    padding: 0.8pc;
+    border-radius: 3pc;
+}
+
 .valendo{
     padding: 0.7pc 1.1pc;
     border-radius: 3pc;
