@@ -1,18 +1,11 @@
-/* @import url("https://fonts.google.com/specimen/Archivo+Black");
-@import "tailwindcss";
-@import url("https://fonts.google.com/specimen/Barlow+Condensed");
-@import url("https://fonts.google.com/specimen/Plus+Jakarta+Sans"); */
 @import url("https://fonts.google.com/specimen/Unbounded");
-/* @import url("https://fonts.google.com/specimen/Oswald"); */
 @import url("https://fonts.google.com/specimen/Manrope");
 
 :root{
 
     --font-prin: 'Unbounded', sans-serif;
-    /* --font-barlow: 'Barlow Condensed', sans-serif; */
     --font-sub:'Manrope', sans-serif;
 
-    /* font-family: 'Archivo Black', sans-serif; */
     --preto: #000000;
     --vermelho :#bb2e2e ;
     --amarelo: #f1c75b; 
@@ -157,7 +150,6 @@ main{
 
 
 #botao_inicio{
-    margin-top: 3pc;
     display: flex;
     gap: 2pc;
     grid-column: 1;

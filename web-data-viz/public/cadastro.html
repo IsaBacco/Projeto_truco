@@ -3,57 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
     <title>Document</title>
 </head>
 <body>
-    <section id="login">
-        <div id="login_titulo">
 
-            <div id="voltar">
 
-                <h3>NSOQC</h3>
-                <a id="x_voltar" href="./index.html">X</a>
-            </div>
-        
-            <p class="texto_vermelho">QUE BOM TER VOCÊ DE VOLTA</p>
-            <h2>CRIE SUA CONTA</h2>
-            <p class="subtexto">Seu perfil é necessário para participar do ranking oficial.</p>
+  <main class="container">
 
-        </div>
+ 
+    <section class="lado-esquerdo">
+      <div class="logo">
+        <span class="logo-icone">T</span>
+        <span class="logo-nome">Mesa de Truco</span>
+      </div>
 
-        <div class="inp_campos">
+      <div class="chamada">
+       
+        <div class="espaco-imagem"></div>
 
-            <label for="inp_nome">Nome</label>
-            <input type="text" id="inp_nome" class="campo" placeholder="Cleitinho">
-            <span></span>
-        </div>
-        
-        <div class="inp_campos">
+        <p class="etiqueta">A mesa está pronta</p>
+        <h2>Entre no<br>jogo.<br><span>Mostre sua<br>mão.</span></h2>
+        <p class="descricao">Crie sua conta para acompanhar partidas, montar sua dupla e provar quem manda na mesa.</p>
+      </div>
 
-            <label for="inp_email">E-mail</label>
-            <input type="text" id="inp_email" class="campo" placeholder="seuemail@gmail.com">
-            <span></span>
-        </div>
-        
-        <div class="inp_campos">
-
-            <label for="inp_senha">Senha</label>
-            <input  type="text" id="inp_senha" class="campo" placeholder="A1234567!">
-            <span></span>
-        
-        </div>
-
-        <!-- Mensagem de erro/sucesso devolvida pela API -->
-        <p id="msg_erro" style="display:none; color:#bb2e2e; font-weight:bold; margin-top:0.8pc; font-size:0.9pc;"></p>
-
-        <button id="bt_entrar" onclick="cadastrar()">Cadastrar</button>
-    
-        <div id="rodape">
-            <p>Ja tem uma conta?<a id="link" href="./login.html"> Entrar</a> </p>
-        </div>
-
+      <p class="rodape">Jogue limpo. Blefe bem.</p>
     </section>
+
+    <section class="lado-direito">
+      <p class="etiqueta etiqueta-vermelha">Nova conta</p>
+      <h1>Faça seu cadastro</h1>
+      <p class="subtitulo">Preencha seus dados. É rápido, seguro e sem blefe.</p>
+
+      <form>
+
+         <label for="email">Nome</label>
+        <div class="campo">
+          <input type="" id="inp_nome" name="nome" placeholder="" required>
+        </div>
+
+        <label for="email">E-mail</label>
+        <div class="campo">
+          <input type="email" id="email" name="inp_email" placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <label for="senha">Senha</label>
+        <div class="campo">
+          <input type="password" id="inp_senha" name="senha" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+          <button type="button" class="mostrar">Mostrar</button>
+        </div>
+
+        <label for="confirmacao">Confirmação de senha</label>
+        <div class="campo">
+          <input type="password" id="confirmacao" name="confirmacao" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+          <button type="button" class="mostrar">Mostrar</button>
+        </div>
+
+        <button type="submit" class="botao-entrar">
+          <span>Entrar na mesa</span>
+          <span>→</span>
+        </button>
+      </form>
+
+      <div class="divisor">♣ Boa sorte ♦</div>
+
+      <p class="login">Já tem uma conta? <a href="./login.html">Fazer login</a></p>
+    </section>
+
+  </main>
+
+
+
+
+</body>
+</html>
 
     <script>
         // Mostra ou esconde a mensagem de retorno da API
@@ -141,5 +164,3 @@
             return false;
         }
     </script>
-</body>
-</html>

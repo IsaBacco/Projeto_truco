@@ -8,47 +8,61 @@
 </head>
 <body>
 
-    <section id="login">
-        <div id="login_titulo">
+  <main class="container">
 
-            <div id="voltar">
 
-                <h3>NSOQC</h3>
-                <a id="x_voltar" href="./index.html">X</a>
-            </div>
-        
-            <p class="texto_vermelho">QUE BOM TER VOCÊ DE VOLTA</p>
-            <h2>ACESSE SUA CONTA</h2>
-            <p class="subtexto">Entre para registrar partidas e acompanhar sua posição.</p>
+    <section class="lado-formulario">
+      <p class="etiqueta etiqueta-vermelha">Sua conta</p>
+      <h1>Faça seu login</h1>
+      <p class="subtitulo">Informe seu e-mail e sua senha para entrar.</p>
 
-        </div>
-        
-        <div class="inp_campos">
-
-            <label for="inp_email">E-mail</label>
-            <input type="text" id="inp_email" class="campo" placeholder="seuemail@gmail.com">
-            <span></span>
-        </div>
-        
-        <div class="inp_campos">
-
-            <label for="inp_senha">Senha</label>
-            <input  type="text" id="inp_senha" class="campo" placeholder="A1234567!">
-            <span></span>
-        
+      <form method="post">
+        <label for="email">E-mail</label>
+        <div class="campo">
+          <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
         </div>
 
-        <!-- Mensagem de erro/sucesso devolvida pela API -->
-        <p id="msg_erro" style="display:none; color:#bb2e2e; font-weight:bold; margin-top:0.8pc; font-size:0.9pc;"></p>
-
-        <button id="bt_entrar">Entrar</button>
-    
-        <div id="rodape">
-            <p>Ainda não tem uma conta?  <a href="./cadastro.html">Cadastra-se</a> </p>
+        <label for="senha">Senha</label>
+        <div class="campo">
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+          <button type="button" class="mostrar">Mostrar</button>
         </div>
 
+        <button type="submit" class="botao-entrar">
+          <span>Entrar na mesa</span>
+          <span>→</span>
+        </button>
+      </form>
+
+      <div class="divisor">♣ Boa sorte ♦</div>
+
+      <p class="login">Ainda não tem uma conta? <a href="index.html">Cadastre-se</a></p>
     </section>
 
+
+    <section class="lado-vermelho">
+      <div class="logo">
+        <span class="logo-icone">T</span>
+        <span class="logo-nome">Mesa de Truco</span>
+      </div>
+
+      <div class="chamada">
+
+        <div class="espaco-imagem"></div>
+
+        <p class="etiqueta">A mesa está pronta</p>
+        <h2>Entre no<br>jogo.<br><span>Mostre sua<br>mão.</span></h2>
+        <p class="descricao">Entre na sua conta para acompanhar partidas, montar sua dupla e provar quem manda na mesa.</p>
+      </div>
+
+      <p class="rodape">Jogue limpo. Blefe bem.</p>
+    </section>
+
+  </main>
+
+
+</body>
+</html>
     <script>
         // Mostra ou esconde a mensagem de retorno da API
         function mostrarMensagem(texto, cor) {
@@ -129,6 +143,3 @@
             if (evento.key === "Enter") entrar();
         });
     </script>
-
-</body>
-</html>
