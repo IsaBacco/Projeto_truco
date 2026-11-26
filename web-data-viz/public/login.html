@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ptBR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <section id="login">
+        <div id="login_titulo">
+
+            <div id="voltar">
+
+                <h3>NSOQC</h3>
+                <a id="x_voltar" href="./index.html">X</a>
+            </div>
+        
+            <p class="texto_vermelho">QUE BOM TER VOCÊ DE VOLTA</p>
+            <h2>ACESSE SUA CONTA</h2>
+            <p class="subtexto">Entre para registrar partidas e acompanhar sua posição.</p>
+
+        </div>
+        
+        <div class="inp_campos">
+
+            <label for="inp_email">E-mail</label>
+            <input type="text" id="inp_email" class="campo" placeholder="seuemail@gmail.com">
+            <span></span>
+        </div>
+        
+        <div class="inp_campos">
+
+            <label for="inp_senha">Senha</label>
+            <input  type="text" id="inp_senha" class="campo" placeholder="A1234567!">
+            <span></span>
+        
+        </div>
+
+        <!-- Mensagem de erro/sucesso devolvida pela API -->
+        <p id="msg_erro" style="display:none; color:#bb2e2e; font-weight:bold; margin-top:0.8pc; font-size:0.9pc;"></p>
+
+        <button id="bt_entrar">Entrar</button>
+    
+        <div id="rodape">
+            <p>Ainda não tem uma conta?  <a href="./cadastro.html">Cadastra-se</a> </p>
+        </div>
+
+    </section>
+
+    <script>
+        // Mostra ou esconde a mensagem de retorno da API
+        function mostrarMensagem(texto, cor) {
+            var msg = document.getElementById("msg_erro");
+            if (texto) {
+                msg.textContent = texto;
+                msg.style.color = cor || "#bb2e2e";
+                msg.style.display = "block";
+            } else {
+                msg.textContent = "";
+                msg.style.display = "none";
+            }
+        }
+
+        function entrar() {
+            var emailVar = document.getElementById("inp_email").value.trim();
+            var senhaVar = document.getElementById("inp_senha").value;
+            var botao = document.getElementById("bt_entrar");
+
+            if (emailVar == "" || senhaVar == "") {
+                mostrarMensagem("Preencha o e-mail e a senha.");
+                return false;
+            }
+
+            mostrarMensagem("");
+            botao.disabled = true;
+            botao.textContent = "Entrando...";
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("Status do login:", resposta.status);
+
+                if (resposta.ok) {
+                    // Login aprovado: guarda a sessão e vai para a home
+                    return resposta.json().then(function (json) {
+                        console.log("Usuário logado:", json);
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+                        sessionStorage.AQUARIOS = JSON.stringify(json.aquarios || []);
+
+                        window.location = "./index.html";
+                    });
+                }
+
+                // Login recusado (403) ou erro na API (500)
+                return resposta.text().then(function (texto) {
+                    mostrarMensagem(texto || "E-mail e/ou senha inválidos.");
+                    botao.disabled = false;
+                    botao.textContent = "Entrar";
+                });
+
+            }).catch(function (erro) {
+                console.log(erro);
+                mostrarMensagem("Não foi possível falar com a API. Verifique se ela está rodando.");
+                botao.disabled = false;
+                botao.textContent = "Entrar";
+            });
+
+            return false;
+        }
+
+        document.getElementById("bt_entrar").addEventListener("click", entrar);
+
+        // Enter nos campos também dispara o login
+        document.getElementById("inp_senha").addEventListener("keydown", function (evento) {
+            if (evento.key === "Enter") entrar();
+        });
+        document.getElementById("inp_email").addEventListener("keydown", function (evento) {
+            if (evento.key === "Enter") entrar();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ptBR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Unbounded:wght@800;900&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Nsoqc</title>
+</head>
+<body>
+    
+    <header>
+        <div id="logoNome">
+            <img src="" alt="">
+            <h2>Nsoqc</h4>
+        </div>
+
+        
+        <nav id="navbar">
+            <a href="">Placar</a>
+            <a href="">Ranking</a>
+            <a href="">Como jogar</a>
+            <a href="">Dicas</a>
+         </nav>
+        
+
+        <div id="botao">
+            <a id="login" href="./login.html">Login</a>
+
+            <!-- <a id='login' href="">Login</a> -->
+            <a id='cadastrase'href="./cadastro.html">Criar conta</a>
+
+        </div>
+
+
+    </header>
+
+    <main>
+
+        <section id="inicio">
+
+            <div id="inicio_card">
+
+                <p id="blefa"> Placar, ranking e comunidade</p>
+                <h1>Jogue. <br>
+                Blefe. <span>Vença.</span> </h1>
+                <p id="texto_inicio">Marque os pontos da sua partida, acompanhe os melhores da mesa e aprenda tudo para mandar bem no truco.</p>
+                
+            </div>
+            <div id="cartas">
+
+                <img id="img_cartas" src="/Projeto_truco/web/public/assets/cartas.png" alt="">
+            </div>
+
+            <div id="botao_inicio">
+
+                <a href="" id="apreda">Aprender a jogar</a>
+                <a href="" id="entrar">Entrar no ranking</a>
+
+            </div>
+
+
+        </section>
+
+        <section id="placar">
+
+            <div id="titulo_placar">
+                <h1>PLACAR DE MESA</h1>
+                <button onclick="reiniciarPartida()">REINICAR PARTIDA</button>
+            </div>
+            
+            <div id="placar_placar">
+                <div id="vitoria"></div>
+
+                <div class="card" id="borda_direita"> 
+
+                    <img id="nipe_coracao" src="./assets/coracao.png" alt="">
+                    <p class="dupla">EQUIPE 01</p>
+                    <input  id="nome_time1" type="text" value="CLAN TEPES">
+                    <!-- <h1 class="nome_equipe">CLAN TEPES</h1> -->
+                    <h1 class="ponto" id="ponto_time1">0</h1>
+                    <div class="placar_botao">
+                        <button id="btn_menos1" class="menosUm" onclick="subtrairPonto(1)">-1</button>
+                        <button id="btn_mais1" class="maisUm" onclick="somarPonto(1)">+1</button>
+                    </div>
+                </div>
+
+                <div id="rodada">
+
+                    <p class="dupla"> RODADA VALE</p>
+
+                    <div id="valendo" class="placar_botao">
+
+                        <button id="btn_val_1" class="valendo" onclick="escolherValendo(1)">1</button>
+                        <button id="btn_val_3" class="valendo" onclick="escolherValendo(3)">3</button>
+                        <button id="btn_val_6" class="valendo" onclick="escolherValendo(6)">6</button>
+                        <button id="btn_val_9" class="valendo" onclick="escolherValendo(9)">9</button>
+                        <button id="doze" onclick="escolherValendo(12)">12</button>
+                    </div>
+
+                    <p class="partida_valendo" id="partida_valendo">VALENDO 1</p> 
+                    
+                </div>
+
+
+                <div class="card" id="borda_esquerda">
+                    <img id="nipe_espada" src="./assets/espadas.png" alt="">
+                    <p class="dupla">EQUIPE 01</p>
+                    <input  id="nome_time2" type="text" value="R||M">
+                    <!-- <h1 class="nome_equipe">R||M</h1> -->
+                    <h1 class="ponto" id="ponto_time2">0</h1>
+                    <div class="placar_botao">
+                        <button id="btn_menos2" class="menosUm" onclick="subtrairPonto(2)">-1</button>
+                        <button id="btn_mais2" class="maisUm" onclick="somarPonto(2)">+1</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+<!-- 
+        <section id="raking">
+
+            <div id="ranking_titulo">
+                <p>TEMPORADA DE 2025</p>
+                <h1>REIS DO TRUCO</h1>
+            </div>
+
+            <div id="aparecer_ranking"> 
+
+                <img src="" alt="">
+
+                <div id="raking_cards">
+                    <h2>QUER APARECER NO RANKING?</h2>
+                    <p>Apenas jogadores cadastrados podem registrar partidas e disputar posições.</p>
+                </div>
+
+                <div>
+                    <button id="rk_entrar">Entrar</button>
+                    <button id="rk_criar">Criar Conta</button>
+                </div>
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>POS.</th>
+                    <th>DUPLA</th>
+                    <th>PARTIDAS</th>
+                    <th>VITORIA</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>TEPES</th>
+                    <th>30</th>
+                    <th>20</th>
+                </tr>
+
+            </table>
+        </section> -->
+
+
+        <section id="comoJogar">
+
+            <div id="titulo_jogar">
+
+                <p id="p_jogar">TRUCO PAULISTA</p>
+                <h1>COMO FUNCIONA<br> O JOGO</h1>
+                <p class="p_descricao">Duas duplas, três cartas para cada jogador e muita leitura de mesa. <br>Entenda o básico antes de chamar o primeiro truco.</p>
+            </div>
+
+            <div id="cards_jogar">
+
+                <div class="cards_como" id="card_lt">
+                    <p class="passo">PASSO 1</p>
+                    <h2>DISTRIBUA AS CARTAS</h2>
+                    <p class="p_descricao">Cada jogador recebe três cartas. Vire uma carta do baralho para definir a manilha da rodada.</p>
+                </div>
+                <div class="cards_como" id="card_rt">
+                    <p class="passo">PASSO 1</p>
+                    <h2>DISTRIBUA AS CARTAS</h2>
+                    <p class="p_descricao">Cada jogador recebe três cartas. Vire uma carta do baralho para definir a manilha da rodada.</p>
+                </div>
+                <div class="cards_como" id="card_lb">
+                    <p class="passo">PASSO 1</p>
+                    <h2>DISTRIBUA AS CARTAS</h2>
+                    <p class="p_descricao">Cada jogador recebe três cartas. Vire uma carta do baralho para definir a manilha da rodada.</p>
+                </div>
+                <div class="cards_como" id="card_rb">
+                    <p class="passo">PASSO 1</p>
+                    <h2>DISTRIBUA AS CARTAS</h2>
+                    <p class="p_descricao">Cada jogador recebe três cartas. Vire uma carta do baralho para definir a manilha da rodada.</p>
+                </div>
+
+            </div>
+
+            <div id="nipes">
+                <div id="order_nipes">
+                    <p>Ordem das manilhas</p>
+                    <h1>Paus > Copas > Espadas > Ouros</h1>
+                </div>
+
+                <p>A manilha é sempre a carta seguinte à vira. Entre as manilhas,<br> o naipe define qual é a mais forte.</p>
+            </div>
+
+
+
+        </section>
+
+
+        <section id="dicas">
+
+            <div id="titulo_dicas">
+                <p>JOGUE MELHOR</p>
+                <h1>DICAS DE QUEM SABE</h1>
+            </div>
+
+
+            <div id="cards_dicas">
+
+                <div class="cards_dicas">
+                    <div class="cards_titulos">
+                        <p class="dicas_tag">ESTRATÉGIA</p>
+                        <h1 class="numero">01</h1>
+                    </div>
+                    <h1>Não entregue seu jogo</h1>
+                    <p class="dicas_descricao">Alterne o ritmo das jogadas e evite reagir imediatamente ao receber uma carta forte.</p>
+                </div>
+                <div class="cards_dicas">
+                    <div class="cards_titulos">
+                        <p class="dicas_tag">ESTRATÉGIA</p>
+                        <h1 class="numero">01</h1>
+                    </div>
+                    <h1>Não entregue seu jogo</h1>
+                    <p class="dicas_descricao">Alterne o ritmo das jogadas e evite reagir imediatamente ao receber uma carta forte.</p>
+                </div>
+                <div class="cards_dicas">
+                    <div class="cards_titulos">
+                        <p class="dicas_tag">ESTRATÉGIA</p>
+                        <h1 class="numero">01</h1>
+                    </div>
+                    <h1>Não entregue seu jogo</h1>
+                    <p class="dicas_descricao">Alterne o ritmo das jogadas e evite reagir imediatamente ao receber uma carta forte.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer_div">
+
+            
+            <h1>NSOQC</h1>
+    
+            <p id="footer_desc">Feito para quem não foge de um seis. Truco Paulista.</p>
+    
+            <p id="voltar_footer">Voltar ao topo ↑</p>
+
+        </div>
+
+    </footer>
+
+    <script>
+        let valendo = 1;
+        let ponto1 = 0;
+        let ponto2 = 0;
+        let travado = false;
+        let botoesValendo = { 1: "btn_val_1", 3: "btn_val_3", 6: "btn_val_6", 9: "btn_val_9", 12: "doze" };
+
+        function escolherValendo(valor) {
+            if (travado == false) {
+                valendo = valor;
+                document.getElementById("partida_valendo").textContent = "VALENDO " + valor;
+                document.getElementById("btn_mais1").textContent = "+" + valor;
+                document.getElementById("btn_menos1").textContent = "-" + valor;
+                document.getElementById("btn_mais2").textContent = "+" + valor;
+                document.getElementById("btn_menos2").textContent = "-" + valor;
+                destaqueValendo();
+            }
+        }
+
+        function destaqueValendo() {
+            let ids = ["btn_val_1", "btn_val_3", "btn_val_6", "btn_val_9", "doze" ];
+            for (let i = 0; i < ids.length; i = i + 1) {
+                document.getElementById(ids[i]).style.backgroundColor = "";
+                document.getElementById(ids[i]).style.color = "";
+                document.getElementById(ids[i]).style.borderColor = "";
+            }
+            let ativo = document.getElementById(botoesValendo[valendo]);
+            ativo.style.backgroundColor = "#f1c75b";
+            ativo.style.color = "#191812";
+            ativo.style.borderColor = "#f1c75b";
+        }
+
+        function somarPonto(time) {
+            if (travado == false) {
+                if (time == 1) {
+                    ponto1 = ponto1 + valendo;
+                    if (ponto1 > 12) {
+                        ponto1 = 12;
+                    }
+                    document.getElementById("ponto_time1").textContent = ponto1;
+                    if (ponto1 == 12) {
+                        mostrarVitoria(1);
+                    }
+                } else {
+                    ponto2 = ponto2 + valendo;
+                    if (ponto2 > 12) {
+                        ponto2 = 12;
+                    }
+                    document.getElementById("ponto_time2").textContent = ponto2;
+                    if (ponto2 == 12) {
+                        mostrarVitoria(2);
+                    }
+                }
+            }
+        }
+
+        function subtrairPonto(time) {
+            if (travado == false) {
+                if (time == 1) {
+                    ponto1 = ponto1 - valendo;
+                    if (ponto1 < 0) {
+                        ponto1 = 0;
+                    }
+                    document.getElementById("ponto_time1").textContent = ponto1;
+                } else {
+                    ponto2 = ponto2 - valendo;
+                    if (ponto2 < 0) {
+                        ponto2 = 0;
+                    }
+                    document.getElementById("ponto_time2").textContent = ponto2;
+                }
+            }
+        }
+
+        function mostrarVitoria(time) {
+            travado = true;
+            let nome = "";
+            if (time == 1) {
+                nome = document.getElementById("nome_time1").value;
+                if (nome == "") {
+                    nome = "EQUIPE 01";
+                }
+            } else {
+                nome = document.getElementById("nome_time2").value;
+                if (nome == "") {
+                    nome = "EQUIPE 02";
+                }
+            }
+            let banner = document.getElementById("vitoria");
+            banner.textContent = "VITÓRIA DE " + nome + "! A QUEDA TERMINOU EM 12 PONTOS.";
+            banner.style.display = "block";
+            document.getElementById("placar_placar").style.marginTop = "0.1";
+        }
+
+        function reiniciarPartida() {
+            ponto1 = 0;
+            ponto2 = 0;
+            travado = false;
+            document.getElementById("ponto_time1").textContent = ponto1;
+            document.getElementById("ponto_time2").textContent = ponto2;
+            escolherValendo(1);
+            let banner = document.getElementById("vitoria");
+            banner.textContent = "";
+            banner.style.display = "none";
+            
+        }
+
+        destaqueValendo();
+    </script>
+</body>
+</html>
