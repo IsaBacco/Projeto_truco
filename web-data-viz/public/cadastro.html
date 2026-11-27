@@ -29,17 +29,16 @@
 
       <p class="rodape">Jogue limpo. Blefe bem.</p>
     </section>
-
     <section class="lado-direito">
       <p class="etiqueta etiqueta-vermelha">Nova conta</p>
       <h1>Faça seu cadastro</h1>
       <p class="subtitulo">Preencha seus dados. É rápido, seguro e sem blefe.</p>
 
-      <form>
+      <form id="form_cadastro">
 
-         <label for="email">Nome</label>
+         <label for="inp_nome">Nome</label>
         <div class="campo">
-          <input type="" id="inp_nome" name="nome" placeholder="" required>
+          <input type="text" id="inp_nome" name="nome" placeholder="Seu nome" required>
         </div>
 
         <label for="email">E-mail</label>
@@ -53,17 +52,20 @@
           <button type="button" class="mostrar">Mostrar</button>
         </div>
 
-        <label for="confirmacao">Confirmação de senha</label>
+        <!-- <label for="confirmacao">Confirmação de senha</label>
         <div class="campo">
           <input type="password" id="confirmacao" name="confirmacao" placeholder="Mínimo de 6 caracteres" minlength="6" required>
           <button type="button" class="mostrar">Mostrar</button>
-        </div>
+        </div> -->
 
-        <button type="submit" class="botao-entrar">
+        <button type="submit" id="bt_cadastrar" class="botao-entrar">
           <span>Entrar na mesa</span>
           <span>→</span>
         </button>
       </form>
+
+      <!-- Mensagem de erro/sucesso devolvida pela API -->
+      <p id="msg_erro" style="display:none; color:#bb2e2e; font-weight:bold; margin-top:0.8pc; font-size:0.9pc;"></p>
 
       <div class="divisor">♣ Boa sorte ♦</div>
 
@@ -71,12 +73,6 @@
     </section>
 
   </main>
-
-
-
-
-</body>
-</html>
 
     <script>
         // Mostra ou esconde a mensagem de retorno da API
@@ -94,9 +90,10 @@
 
         function cadastrar() {
             var nomeVar = document.getElementById("inp_nome").value.trim();
-            var emailVar = document.getElementById("inp_email").value.trim();
+            var emailVar = document.getElementById("email").value.trim();
             var senhaVar = document.getElementById("inp_senha").value;
-            var botao = document.getElementById("bt_entrar");
+            var botao = document.getElementById("bt_cadastrar");
+            var textoOriginal = botao.innerHTML;
 
             // Verificando se há algum campo em branco
             if (nomeVar == "" || emailVar == "" || senhaVar == "") {
@@ -111,7 +108,7 @@
 
             mostrarMensagem("");
             botao.disabled = true;
-            botao.textContent = "Cadastrando...";
+            botao.innerHTML = "<span>Cadastrando...</span>";
 
             // Enviando os dados para a API (rota POST /usuarios/cadastrar)
             fetch("/usuarios/cadastrar", {
@@ -151,16 +148,40 @@
 
                         mostrarMensagem(mensagem || "Houve um erro ao tentar realizar o cadastro!");
                         botao.disabled = false;
-                        botao.textContent = "Cadastrar";
+                        botao.innerHTML = textoOriginal;
                     });
                 })
                 .catch(function (erro) {
                     console.log(erro);
                     mostrarMensagem("Não foi possível falar com a API. Verifique se ela está rodando.");
                     botao.disabled = false;
-                    botao.textContent = "Cadastrar";
+                    botao.innerHTML = textoOriginal;
                 });
 
             return false;
         }
+
+        // Impede o POST do form (que daria 404) e dispara o cadastro.
+        // Assim tanto o botão quanto a tecla Enter caem aqui, uma única vez.
+        document.getElementById("form_cadastro").addEventListener("submit", function (evento) {
+            evento.preventDefault();
+            cadastrar();
+        });
+
+        // Botão "Mostrar"/"Ocultar" da senha
+        document.querySelectorAll(".mostrar").forEach(function (botaoMostrar) {
+            botaoMostrar.addEventListener("click", function () {
+                var input = botaoMostrar.parentElement.querySelector("input");
+                if (input.type === "password") {
+                    input.type = "text";
+                    botaoMostrar.textContent = "Ocultar";
+                } else {
+                    input.type = "password";
+                    botaoMostrar.textContent = "Mostrar";
+                }
+            });
+        });
     </script>
+
+</body>
+</html>
